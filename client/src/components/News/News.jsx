@@ -13,33 +13,40 @@ const demoImage =
   'http://coinrevolution.com/wp-content/uploads/2020/06/cryptonews.jpg';
 
 const News = ({ simplified }) => {
-  const { data: currencies } = useGetCryptosQuery(100);
-  const [newsCategory, setNewsCategory] = useState('Cryptocurrency');
-  const count = simplified ? 6 : 12;
+  const [newsCategory, setNewsCategory] = useState('cryptocurrency');
   const { data } = useGetCryptoNewsQuery({
     newsCategory,
-    count,
   });
 
-  if (!data?.value) return <Spinner />;
+  console.log(data);
+
+  if (!data) return <Spinner />;
+
+  const { articles } = data;
 
   return (
     <Row gutter={[24, 24]}>
-      {data.value.map(news => (
-        <Col xs={24} sm={12} lg={8} key={news.id}>
+      {articles.map(article => (
+        <Col xs={24} sm={12} lg={8} key={article.rank}>
           <Card>
-            <a href={news.url} target='_blank'>
+            <a href={article.link} target='_blank' rel='noreferrer'>
               <div className='news__card'>
-                <Title level={4}>{news.name}</Title>
-                <img
-                  style={{
-                    maxWidth: '200px',
-                    maxHeight: '100px',
-                    borderRadius: '50px',
-                  }}
-                  src={news?.image?.thumbnail?.contentUrl || demoImage}
-                  alt=''
-                />
+                <div className='news__header'>
+                  <Title level={4}>{article.title}</Title>
+                  <img
+                    style={{
+                      maxWidth: '200px',
+                      maxHeight: '100px',
+                    }}
+                    src={article.media || demoImage}
+                    alt=''
+                  />
+                </div>
+                <p>
+                  {article.summary.length > 100
+                    ? `${article.summary.substring(0, 100)}...`
+                    : article.summary}
+                </p>
               </div>
             </a>
           </Card>

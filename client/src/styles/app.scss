@@ -39,3 +39,13 @@ p {
   width: 33vw;
   margin: 1rem auto;
 }
+.news__card {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.news__header {
+  display: flex;
+  justify-content: space-between;
+}

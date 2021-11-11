@@ -1,17 +1,14 @@
 const express = require('express');
 const path = require('path');
+const fetchNewsData = require('./controllers/cryptoNewsApiController');
 
 const app = express();
 
 const PORT = process.env.port || 5000;
 
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-});
+app.use(express.static(path.join(__dirname, 'client/build')));
 
-app.get('/api', (req, res) => {
-  res.json({ message: 'Hello from server!' });
-});
+app.get('/api/news/search', fetchNewsData);
 
 app.listen(PORT, () => {
   console.log(`Server running on port: ${PORT}`);
