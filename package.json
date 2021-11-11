@@ -1,0 +1,20 @@
+{
+  "name": "salt-crypto",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "build": "cd client && npm run build",
+    "client": "cd client && npm run start",
+    "dev": "concurrently --kill-others-on-fail \"npm start\" \"npm run client\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^6.3.0",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.15"
+  }
+}

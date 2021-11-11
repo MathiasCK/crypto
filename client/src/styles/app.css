@@ -1,0 +1,49 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+a {
+  color: black !important;
+  text-decoration: none;
+}
+
+p {
+  font-weight: lighter;
+}
+
+.nav {
+  height: 10vh;
+  background: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.nav a {
+  margin: 0 1rem;
+  color: white !important;
+}
+
+.main {
+  background: whitesmoke;
+  padding: 1rem;
+}
+
+.heading {
+  color: lightblue !important;
+  padding: 2rem 0;
+}
+
+.search {
+  width: 33vw;
+  margin: 1rem auto;
+}
+/*# sourceMappingURL=app.css.map */
